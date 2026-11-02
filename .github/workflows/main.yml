@@ -1,0 +1,16 @@
+name: Windows Demo Only
+on:
+  workflow_dispatch:
+
+jobs:
+  demo-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Ver informações do Windows
+        run: |
+          Write-Host "=== Informações do Sistema ==="
+          Get-ComputerInfo
+          Write-Host "=== Endereços IP do Runner ==="
+          Get-NetIPAddress -AddressFamily IPv4
+        shell: powershell
+concurrency:
